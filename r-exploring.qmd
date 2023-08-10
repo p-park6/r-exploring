@@ -2,10 +2,36 @@
 title: "r-exploring"
 ---
 
-## Quarto
+```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+```{r}
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skimr::skim(diamonds)
+```
+```{r}
+ggpairs(diamonds)
+```
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
 ```{r}
-1 + 1
+diamonds_plot <- ggplot(data = diamonds, aes(x = price, y = carat)) + geom_point()
+diamonds_plot
 ```
+```{r}
+#histogram
+diamonds_histogram <- ggplot(data = diamonds, aes(x = carat)) +geom_histogram()
+diamonds_histogram
+```
+```{r}
+diamonds_plot <- ggplot(data = diamonds, aes(x = price, y = carat)) + geom_box()
+diamonds_plot
+```
+
+
